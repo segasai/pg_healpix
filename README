@@ -1,9 +1,34 @@
-					pg_healpix
-    Author: Sergey Koposov, Institute of Astronomy, Cambridge
-			and multiple HEALPIX authors
-	Email: koposov@ast.cam.ac.uk
+					PG_HEALPIX
+Author: Sergey Koposov, Institute of Astronomy, Cambridge
+	and multiple HEALPIX authors    (C) 2012
+Email: koposov@ast.cam.ac.uk
 
+This software provides an SQL access to a few of HEALPIX functions, which allows you 
+to convert the ra,dec coordinates into Healpix number and back
 
-This software provides an SQL access to a few of HEALPIX functions, which allows you to convert
-ra,dec into Healpix number and reverse
+Example:
+
+wsdb=> select healpix_ang2ipix_nest(1024,12,25);
+ healpix_ang2ipix_nest
+-----------------------
+               5102321
+(1 row)
+
+wsdb=> select healpix_ang2ipix_ring(1024,12,25);
+ healpix_ang2ipix_ring
+-----------------------
+               3627144
+(1 row)
+
+wsdb=> select healpix_ipix2ang_nest(1024,4323);
+     healpix_ipix2ang_nest
+--------------------------------
+ {47.63671875,3.24700649515993}
+(1 row)
+
+wsdb=> select healpix_ipix2ang_ring(1024,4323);
+        healpix_ipix2ang_ring
+-------------------------------------
+ {359.021739130435,87.8983556468228}
+(1 row)
 
