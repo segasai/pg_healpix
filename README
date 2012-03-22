@@ -3,8 +3,9 @@ Author: Sergey Koposov, Institute of Astronomy, Cambridge
 	and multiple HEALPIX authors    (C) 2012
 Email: koposov@ast.cam.ac.uk
 
-This software provides an SQL access to a few of HEALPIX functions, which allows you 
-to convert the ra,dec coordinates into Healpix number and back
+This software provides an SQL (PostgreSQL) interface for several 
+HEALPIX functions, which allows you to convert the ra,dec coordinates 
+into Healpix IDs and back. 
 
 ---------------------------------------------------------------------------------
 Example:
