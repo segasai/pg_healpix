@@ -1,7 +1,7 @@
 MODULE_big=pg_healpix
 OBJS=ang2pix_nest.o ang2pix_ring.o pix2ang_nest.o pix2ang_ring.o mk_pix2xy.o mk_xy2pix.o pg_healpix.o
 DATA_built=pg_healpix.sql
-DOCS=README.pg_healpix
+DOCS=README
 
 OPT=-O3
 OPT_LOW=-O2
@@ -41,7 +41,7 @@ test: all
 
 dist: clean
 	mkdir -p dist
-	cp *.c *.h *.sql.in Makefile README.pgheal COPYING dist
+	cp *.c *.h *.sql.in Makefile README COPYING dist
 	mkdir -p dist/tests
 	cp tests/*.expected tests/*.sql dist/tests
 	cat pg_healpix.sql.in | perl create_drops.pl > dist/drop_pghealpix.sql
