@@ -1,0 +1,9 @@
+					pg_healpix
+    Author: Sergey Koposov, Institute of Astronomy, Cambridge
+			and multiple HEALPIX authors
+	Email: koposov@ast.cam.ac.uk
+
+
+This software provides an SQL access to a few of HEALPIX functions, which allows you to convert
+ra,dec into Healpix number and reverse
+
