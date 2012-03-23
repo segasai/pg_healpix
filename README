@@ -9,25 +9,25 @@ into Healpix IDs and back.
 
 ---------------------------------------------------------------------------------
 Example:
-wsdb=> select healpix_ang2ipix_nest(1024,12,25);
+wsdb=> select healpix_ang2ipix_nest(1024, 12., 25.);
  healpix_ang2ipix_nest
 -----------------------
                5102321
 (1 row)
 
-wsdb=> select healpix_ang2ipix_ring(1024,12,25);
+wsdb=> select healpix_ang2ipix_ring(1024, 12., 25.);
  healpix_ang2ipix_ring
 -----------------------
                3627144
 (1 row)
 
-wsdb=> select healpix_ipix2ang_nest(1024,4323);
+wsdb=> select healpix_ipix2ang_nest(1024, 4323);
      healpix_ipix2ang_nest
 --------------------------------
  {47.63671875,3.24700649515993}
 (1 row)
 
-wsdb=> select healpix_ipix2ang_ring(1024,4323);
+wsdb=> select healpix_ipix2ang_ring(1024, 4323);
         healpix_ipix2ang_ring
 -------------------------------------
  {359.021739130435,87.8983556468228}
