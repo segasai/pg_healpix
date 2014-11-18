@@ -26,6 +26,7 @@
 
 
 #include <string.h>
+#include <math.h>
 
 /* Postgres stuff */
 #include "postgres.h"
@@ -143,6 +144,10 @@ Datum pgheal_ang2ipix_nest(PG_FUNCTION_ARGS)
 	q3c_ipix_t ipix;
 	q3c_coord_t theta;
 	q3c_coord_t phi;
+	if ((!isfinite(ra))||(!isfinite(dec)))
+	{
+		PG_RETURN_NULL();
+	}
 	get_theta_phi(ra,dec, &theta, &phi);
 	nside_check(nside);
 	angle_check(theta);
@@ -159,6 +164,10 @@ Datum pgheal_ang2ipix_ring(PG_FUNCTION_ARGS)
 	q3c_coord_t dec = PG_GETARG_FLOAT8(2);
 	q3c_ipix_t ipix;
 	q3c_coord_t theta, phi;
+	if ((!isfinite(ra))||(!isfinite(dec)))
+	{
+		PG_RETURN_NULL();
+	}
 	get_theta_phi(ra, dec, &theta, &phi);
 	nside_check(nside);
 	angle_check(theta);
@@ -176,7 +185,6 @@ Datum pgheal_ipix2ang_nest(PG_FUNCTION_ARGS)
 	nside_check(nside);
 	ipix = PG_GETARG_INT64(1);
 	ipix_check(nside, ipix);
-
 	pix2ang_nest(nside, ipix, &theta, &phi);
 	get_ra_dec(theta, phi, &ra, &dec);
     PG_RETURN_ARRAYTYPE_P(build_array(ra, dec));
