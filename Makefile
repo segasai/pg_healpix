@@ -5,6 +5,8 @@ EXTENSION = pg_healpix
 DATA = pg_healpix--1.0.sql
 PGFILEDESC = "pg_healpix - HEALPIX functions for PostgreSQL"
 
+REGRESS = simple1 simple2 simple3 simple4
+
 PG_CONFIG = pg_config
 PGXS := $(shell $(PG_CONFIG) --pgxs)
 include $(PGXS)
