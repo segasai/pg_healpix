@@ -44,7 +44,7 @@ void pix2ang_nest( long nside, long ipix, double *theta, double *phi) {
     c=======================================================================
   */
     
-      int npix, npface, face_num;
+      int npface, face_num;
       int  ipf, ip_low, ip_trunc, ip_med, ip_hi;
       int     ix, iy, jrt, jr, nr, jpt, jp, kshift, nl4;
       double z, fn, fact1, fact2;
@@ -80,8 +80,6 @@ void pix2ang_nest( long nside, long ipix, double *theta, double *phi) {
       jpll[9]=3;
       jpll[10]=5;
       jpll[11]=7;
-      
-      npix = 12 * nside*nside;
 
       /* initiates the array for the pixel number -> (x,y) mapping */
       if( pix2x[1023]<=0 ) mk_pix2xy(pix2x,pix2y);
