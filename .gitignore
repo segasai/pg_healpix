@@ -6,3 +6,4 @@
 *.o
 *.bc
 *.gc*
+*.typedefs
