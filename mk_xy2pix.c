@@ -1,9 +1,9 @@
 /* -----------------------------------------------------------------------------
  *
  *  Copyright (C) 1997-2010 Krzysztof M. Gorski, Eric Hivon,
- *                          Benjamin D. Wandelt, Anthony J. Banday, 
- *                          Matthias Bartelmann, 
- *                          Reza Ansari & Kenneth M. Ganga 
+ *                          Benjamin D. Wandelt, Anthony J. Banday,
+ *                          Matthias Bartelmann,
+ *                          Reza Ansari & Kenneth M. Ganga
  *
  *
  *  This file is part of HEALPix.
@@ -30,39 +30,50 @@
 
 #include "chealpix.h"
 
-void mk_xy2pix(int *x2pix, int *y2pix) {
-  /* =======================================================================
-   * subroutine mk_xy2pix
-   * =======================================================================
-   * sets the array giving the number of the pixel lying in (x,y)
-   * x and y are in {1,128}
-   * the pixel number is in {0,128**2-1}
-   *
-   * if  i-1 = sum_p=0  b_p * 2^p
-   * then ix = sum_p=0  b_p * 4^p
-   * iy = 2*ix
-   * ix + iy in {0, 128**2 -1}
-   * =======================================================================
-   */
-  int i, K,IP,I,J,ID;
-  
-  for(i = 0; i < 127; i++) x2pix[i] = 0;
-  for( I=1;I<=128;I++ ) {
-    J  = I-1;//            !pixel numbers
-    K  = 0;//
-    IP = 1;//
-    truc : if( J==0 ) {
-      x2pix[I-1] = K;
-      y2pix[I-1] = 2*K;
-    }
-    else {
-      ID = (int)fmod(J,2);
-      J  = J/2;
-      K  = IP*ID+K;
-      IP = IP*4;
-      goto truc;
-    }
-  }     
-  
-}
+void
+mk_xy2pix(int *x2pix, int *y2pix)
+{
+	/*
+	 * =======================================================================
+	 * subroutine mk_xy2pix
+	 * =======================================================================
+	 * sets the array giving the number of the pixel lying in (x,y) x and y
+	 * are in {1,128} the pixel number is in {0,128**2-1}
+	 *
+	 * if  i-1 = sum_p=0  b_p * 2^p then ix = sum_p=0  b_p * 4^p iy = 2*ix ix
+	 * + iy in {0, 128**2 -1}
+	 * =======================================================================
+	 */
+	int			i,
+				K,
+				IP,
+				I,
+				J,
+				ID;
 
+	for (i = 0; i < 127; i++)
+		x2pix[i] = 0;
+	for (I = 1; I <= 128; I++)
+	{
+		J = I - 1;
+		//!pixel numbers
+			K = 0;
+		//
+			IP = 1;
+		//
+truc:		if (J == 0)
+		{
+			x2pix[I - 1] = K;
+			y2pix[I - 1] = 2 * K;
+		}
+		else
+		{
+			ID = (int) fmod(J, 2);
+			J = J / 2;
+			K = IP * ID + K;
+			IP = IP * 4;
+			goto truc;
+		}
+	}
+
+}
