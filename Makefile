@@ -11,3 +11,8 @@ REGRESS = simple1 simple2 simple3 simple4
 PG_CONFIG = pg_config
 PGXS := $(shell $(PG_CONFIG) --pgxs)
 include $(PGXS)
+
+test: all
+	dropdb --if-exists pghpx_test
+	createdb pghpx_test
+	psql -c 'create extension pg_healpix;' pghpx_test
