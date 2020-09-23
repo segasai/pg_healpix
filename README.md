@@ -1,7 +1,7 @@
 					PG_HEALPIX
-Author: Sergey Koposov, Institute of Astronomy, Cambridge
-	and multiple HEALPIX authors    (C) 2012
-Email: koposov@ast.cam.ac.uk
+Author: Sergey Koposov
+	and multiple HEALPIX authors    (C) 2012-2020
+Email: skoposov __ AT __ ed __ DOT __ ac __ DOT __ uk
 
 This software provides an SQL (PostgreSQL) interface for several 
 HEALPIX functions, which allows you to convert the ra,dec coordinates 
@@ -28,6 +28,7 @@ wsdb=> select healpix_ipix2ang_nest(1024, 4323);
 --------------------------------
  {47.63671875,3.24700649515993}
 (1 row)
+```
 ```
 wsdb=> select healpix_ipix2ang_ring(1024, 4323);
         healpix_ipix2ang_ring
