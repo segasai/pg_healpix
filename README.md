@@ -1,11 +1,14 @@
-					PG_HEALPIX
-Author: Sergey Koposov
-	and multiple HEALPIX authors    (C) 2012-2020
-Email: skoposov __ AT __ ed __ DOT __ ac __ DOT __ uk
+# PG_HEALPIX
+[![Build Status](https://travis-ci.com/segasai/pg_healpix.svg?branch=master)](https://travis-ci.com/segasai/pg_healpix)
 
 This software provides an SQL (PostgreSQL) interface for several 
 HEALPIX functions, which allows you to convert the ra,dec coordinates 
 into Healpix IDs and back. 
+
+Author: Sergey Koposov and multiple HEALPIX authors 
+(C) 2012-2020
+
+Email: skoposov __AT__ ed __DOT__ ac __DOT__ uk
 
 Example:
 ```
